@@ -1,166 +1,233 @@
 🌐 [Português (BR)](README.pt_BR.md) | [Español](README.es.md)
 
-# 🎯 Soc Ops: Social Icebreaker Bingo
-
-Break the ice and build real connections—one bingo square at a time!
-
-**Soc Ops** is a fun, interactive social bingo game designed for mixers, team-building events, workshops, and anywhere people need to connect. Players find individuals who match icebreaker prompts, mark their squares, and race to get five in a row. It's engaging, memorable, and designed to spark genuine conversations.
-
-**Built with:** Blazor WebAssembly + .NET 10 | **No external CSS frameworks** | **Persistent game state** | **Perfect for learning full-stack development**
-
----
-
-## 🚀 Quick Start
-
-### Play Now
-👉 **[Launch the Live Game](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/)**
-
-### Learn by Building
-Want to build your own version? Follow our interactive **[Dev Lab Guide](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/)** — a hands-on workshop that teaches you:
-
-| Module | What You'll Learn |
-|--------|-------------------|
-| [**Module 00**](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=00-overview) | Project overview & development checklist |
-| [**Module 01**](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=01-setup) | Setup, context engineering & AI-assisted development |
-| [**Module 02**](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=02-design) | Design-first frontend development with custom CSS |
-| [**Module 03**](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=03-quiz-master) | Create custom question sets with AI agents |
-| [**Module 04**](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=04-multi-agent) | Multi-agent workflows & advanced patterns |
-
-📖 **Prefer local docs?** All guides are in the [`workshop/`](workshop/) folder for offline learning.
+```
+███████╗ ██████╗  ██████╗     ██████╗ ██████╗ ███████╗
+██╔════╝██╔═══██╗██╔════╝    ██╔═══██╗██╔══██╗██╔════╝
+███████╗██║   ██║██║  █████╗██║   ██║██████╔╝███████╗
+╚════██║██║   ██║██║  ╚════╝██║   ██║██╔═══╝ ╚════██║
+███████║╚██████╔╝╚██████╗    ╚██████╔╝██║     ███████║
+╚══════╝ ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝     ╚══════╝
+                                                        
+    🕹️  SOCIAL BINGO ARCADE STATION  🕹️
+        [INSERT C0I N T0 C0NTINUE]
+```
 
 ---
 
-## ✨ Why Soc Ops?
+## 📺 THE GAME
 
-✅ **Icebreaker Perfected** — Thoughtfully designed prompts spark real conversations, not awkward silence  
-✅ **Zero Setup** — Just launch and play—no installation needed  
-✅ **Customizable** — Modify questions and themes for your event  
-✅ **Learn Modern Dev** — Great example of Blazor component architecture, state management, and UI/UX design  
-✅ **Open Source** — Fork, customize, and contribute  
+**Find humans. Mark squares. WIN BIG.**
 
----
+A retro-style social bingo arcade cabinet for mixers, team-building events, and anywhere humans need to actually talk to each other. Read the prompts, hunt down the players, tap the squares, get **FIVE IN A ROW** for:
 
-## 🎮 How to Play
+```
+    ████████████████████
+    █ * P O I N T S * █
+    ████████████████████
+```
 
-1. **Start the game** — Click "Play" to begin
-2. **Find matches** — Read the prompts and find someone who matches each square
-3. **Mark squares** — Tap a square when found
-4. **Win** — Get 5 in a row (horizontal, vertical, or diagonal) to win!
+🎮 Built in **BLAZOR WebAssembly** | 🔷 **.NET 10 Runtime** | 📦 **Zero CSS dependencies** | 💾 **Level saves to localStorage**
 
 ---
 
-## 💻 For Developers
+## 🎯 COIN SLOTS
 
-### Prerequisites
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or higher
+### ▶ PLAY NOW
+**[⚡ LAUNCH THE ARCADE](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/)**  
+No quarters needed. No installation. Just click and compete.
 
-### Get Started Locally
+### 🏫 LEARN THE ROPES
+Follow the **[ARCADE MANUAL](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/)** — 5 levels of pure development mastery:
+
+```
+LEVEL 00 │ ▌ % │ ◆ PROJECT SETUP & SURVIVAL GUIDE
+LEVEL 01 │ ▌ # │ ◆ CONTEXT ENGINEERING & AI PARTNERS  
+LEVEL 02 │ ▌ & │ ◆ PIXEL-PERFECT FRONTEND DESIGN
+LEVEL 03 │ ▌ @ │ ◆ QUIZ MASTER AGENT UNLOCKED
+LEVEL 04 │ ▌ $ │ ◆ MULTI-AGENT FINAL BOSS
+```
+
+🖥️ **Offline mode?** All manuals cached in [`workshop/`](workshop/) folder—play without internet!
+
+---
+
+## ⭐ POWER-UPS
+
+```
+[✓] Conversation Igniter    - Real icebreakers, zero awkward silence
+[✓] Plug & Play             - Launch immediately, no tweaking
+[✓] Themeable               - Customize questions for YOUR crowd
+[✓] Dev Masterclass         - Learn real Blazor patterns & C# state
+[✓] Source Code Open        - Fork it. Hack it. Make it yours.
+```
+
+---
+
+## ▶ GAMEPLAY MECHANICS
+
+```
+┌──────────────────────────────┐
+│ STAGE 1: READ THE PROMPT     │
+├──────────────────────────────┤
+│ STAGE 2: FIND THAT HUMAN     │
+├──────────────────────────────┤
+│ STAGE 3: TAP THE SQUARE      │
+├──────────────────────────────┤
+│ STAGE 4: FIVE IN A ROW?      │
+│         ► YES = HIGH SCORE!  │
+└──────────────────────────────┘
+```
+
+---
+
+## � ARCADE ROM SETUP (For Developers)
+
+### 🎮 System Requirements
+```
+CPU: .NET 10 SDK or higher
+RAM: 512MB minimum
+INPUT: Keyboard, Mouse, or Touch
+DISPLAY: Modern browser (Chrome, Firefox, Safari, Edge)
+```
+
+📥 **[Download .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0)**
+
+---
+
+### ▶ START YOUR LOCAL CABINET
 
 ```bash
-# Clone and navigate to the project
+# Clone the arcade code
 git clone <your-repo>
 cd my-soc-ops-csharp
 
-# Run the development server
+# Boot up the emulator
 cd SocOps
 dotnet run
 ```
 
-The game will be available at `http://localhost:5166`
-
-### Build & Deploy
-
-```bash
-# Build the project
-dotnet build
-
-# Publish for production
-dotnet publish
-```
-
-Deployments to GitHub Pages happen automatically on every push to `main`.
+🎯 Game launches on **`http://localhost:5166`**
 
 ---
 
-## 🐙 Develop in GitHub Codespaces
+### 🏗️ BUILD YOUR CUSTOM ROM
 
-Want to code without installing anything? Use GitHub Codespaces:
+```bash
+# Compile the cartridge
+dotnet build
+
+# Master archive build  
+dotnet publish
+```
+
+✅ **Auto-deployment:** Every `main` branch push → **GitHub Pages** (no manual steps)
+
+---
+
+## 🌐 PLAY IN THE CLOUD (GitHub Codespaces)
+
+No arcade cabinet needed. Play in the browser:
 
 1. Fork this repo on GitHub
 2. Click **Code** → **Codespaces** → **Create codespace on main**
-3. Wait for the dev container to finish setup
-4. From the repository root:
+3. Wait for the devcontainer genesis sequence to complete
+4. In the terminal:
    ```bash
    cd SocOps
    dotnet run
    ```
 
-The dev container comes pre-configured with .NET 10, all dependencies, and dev tools.
+**Boom.** Instant browser arcade. No installation. Pure cloud gaming.
 
 ---
 
-## 🏗️ Project Structure
+## 🗂️ ARCADE SCHEMATICS
 
 ```
 SocOps/
-├── Components/           # Blazor components (UI)
-│   ├── BingoBoard.razor
-│   ├── GameScreen.razor
-│   └── StartScreen.razor
-├── Services/             # Business logic
-│   ├── BingoGameService.cs      (state management)
-│   └── BingoLogicService.cs     (game rules)
-├── Models/               # Data models
-├── Pages/                # Route pages
-└── wwwroot/              # Static assets & CSS
+├── Components/          ◆ The Pixels (UI Cabinet)
+│   ├── BingoBoard.razor      ✦ 5×5 Grid Controller
+│   ├── GameScreen.razor       ✦ Main Arcade Display
+│   └── StartScreen.razor      ✦ Cabinet Boot Screen
+│
+├── Services/            ◆ The Logic (CPU)
+│   ├── BingoGameService.cs      ✦ State Manager
+│   └── BingoLogicService.cs     ✦ Game Rules Engine
+│
+├── Models/              ◆ The Data (Memory)
+│   ├── GameState.cs
+│   ├── BingoSquareData.cs
+│   └── BingoLine.cs
+│
+├── Pages/               ◆ The Router (Navigation)
+└── wwwroot/css/app.css  ◆ The Shaders (Custom styling)
 ```
 
-**Architecture highlights:**
-- **Component-based UI** — Reusable, testable Blazor components
-- **Immutable state** — Predictable updates via services
-- **Local persistence** — Game state saved to localStorage
-- **Custom CSS** — No external frameworks; pure, optimized styling
+### 🎨 Design Patterns Unlocked:
+- **Component Architecture** — Modular, reusable Blazor parts
+- **Immutable State** — Predictable game updates (no mutations!)
+- **Level Persistence** — localStorage auto-saves your progress
+- **Pure Logic** — `BingoLogicService` = zero side effects, 100% testable
 
 ---
 
-## 🎓 Learn More
+## 📚 ARCADE MANUAL (Full Developer Guide)
 
-Want to understand how it works? The **[Lab Guide](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/)** walks you through:
+Deep dive into each level:
 
-- Setting up context for AI-assisted development
-- Building components with design-first thinking
-- Managing game state with C# services
-- Customizing questions and gameplay with AI agents
-- Advanced patterns with multiple agents
+🎯 **[Level 00](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=00-overview)** — Project anatomy & survival checklist  
+🎯 **[Level 01](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=01-setup)** — Environment setup & AI-assisted coding  
+🎯 **[Level 02](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=02-design)** — CSS mastery & component design  
+🎯 **[Level 03](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=03-quiz-master)** — Custom question generation with AI  
+🎯 **[Level 04](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/step.html?step=04-multi-agent)** — Advanced multi-agent orchestration  
 
----
-
-## 🤝 Contributing
-
-We love contributions! Here's how to help:
-
-1. **Report bugs** — Open an issue with details
-2. **Suggest features** — Share ideas for new question packs or themes
-3. **Submit PRs** — Fork, create a feature branch, and submit a pull request
-4. **Improve docs** — Help make the workshop clearer
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+📖 Cached offline in [`workshop/`](workshop/) — no internet, no problem.
 
 ---
 
-## 📝 License
+## 🤝 PLAYER CONTRIBUTIONS
 
-This project is licensed under the [MIT License](LICENSE)—feel free to use it for learning, teaching, and building your own versions.
+Found a bug? Have a power-up idea? Wanna add new cabinet themes? **Jump in:**
 
----
+1. 🐛 **Report Glitches** — [Open an issue](../../issues) with full specs  
+2. 💡 **Suggest Features** — Question packs, themes, gameplay modes  
+3. 🔧 **Submit Mods** — Fork → Create feature branch → PR  
+4. 📖 **Improve Docs** — Make the manual clearer for next players  
 
-## 🙌 Support this Project
-
-- **⭐ Star** this repo if you found it helpful
-- **🔄 Share** it with your team or event organizers
-- **💬 Give feedback** via GitHub issues
-- **🚀 Deploy your own** version—show us what you build!
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the full ruleset.
 
 ---
 
-**Questions?** Check out [SUPPORT.md](SUPPORT.md) for help resources.
+## ⚖️ LICENSE & ATTRIBUTION
+
+```
+████████████════════════════════════
+  MIT License - Do Whatever You Want
+████████████════════════════════════
+```
+
+Use it. Learn from it. Remix it. Share it. [Full license text](LICENSE).
+
+---
+
+## 🎊 KEEP THE ARCADE ALIVE
+
+```
+[★] Star this repo for cosmic luck
+[↗] Share with your crew—spread the word
+[💬] Give feedback in Issues
+[🚀] Build YOUR custom cabinet—show us!
+```
+
+---
+
+## ❓ GAME OVER? GET HELP
+
+Stuck? Check [SUPPORT.md](SUPPORT.md) for tutorials, FAQs, and community links.
+
+```
+╔════════════════════════════════╗
+║        Thanks for Playing!     ║
+║   [PRESS START TO CONTINUE]    ║
+╚════════════════════════════════╝
+```
