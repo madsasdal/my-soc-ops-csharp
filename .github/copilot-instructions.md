@@ -1,248 +1,148 @@
 # Copilot Workspace Instructions
 
-## Project Overview
+## ✅ Mandatory Development Checklist
 
-**Soc Ops** is a Social Bingo game built with Blazor WebAssembly (.NET 10). Players find people who match icebreaker questions to mark squares and achieve 5 in a row (bingo).
+Before committing code:
 
-**Stack**: C# + Blazor WebAssembly + .NET 10 + Custom CSS utilities
+```bash
+cd SocOps
 
-**Quick Links**:
-- 🎮 [Play the live game](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/)
-- 📚 [Workshop guides](./workshop/) - 5 learning modules (setup, design, quiz master, multi-agent)
-- 🎯 [Lab guide](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/)
+# 1. Lint/Format
+dotnet format
+
+# 2. Build
+dotnet build
+
+# 3. Test (manual until tests added)
+# - Run: dotnet run
+# - Test game flow: Start → Click squares → Achieve bingo
+# - Verify persistence: Reload page, state restored
+```
+
+**Linting Rules** (`.editorconfig`):
+- `dotnet_code_quality_unused_parameters = all:warning` — Unused variables/parameters
+- `csharp_style_unused_private_member = true:warning` — Unused private members
+- `csharp_style_prefer_async_over_sync = true:warning` — Prefer async over sync
+- Use `_ = SaveGameStateAsync();` for "fire and forget" async calls
 
 ---
 
-## Essential Architecture
+## Project Overview
+
+**Soc Ops**: Social Bingo game (Blazor WebAssembly + .NET 10)  
+Players find people matching icebreaker questions, mark squares, get 5 in a row to win.
+
+**Quick Links**: [Live game](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/) • [Workshop](./workshop/) • [Lab guide](https://dotnet-presentations.github.io/vscode-github-copilot-agent-lab/docs/)
+
+---
+
+## Architecture
 
 ```
 SocOps/
-├── Components/              # Reusable Blazor components
-│   ├── BingoBoard.razor     # 5x5 grid, renders squares
-│   ├── BingoSquare.razor    # Individual square with click handler
-│   ├── BingoModal.razor     # Victory animation
-│   ├── GameScreen.razor     # Main game UI
-│   └── StartScreen.razor    # Initial screen
-├── Services/                # Business logic & state
-│   ├── BingoGameService.cs  # State management, localStorage persistence
-│   └── BingoLogicService.cs # Game rules (board generation, bingo detection)
-├── Models/                  # Data structures
-│   ├── GameState.cs         # Enum: Start, Playing, Bingo
-│   ├── BingoSquareData.cs   # Square model
-│   └── BingoLine.cs         # Winning line model
-├── Data/                    # Static data
-│   └── Questions.cs         # 24 icebreaker questions
-├── Pages/                   # Routable Blazor pages
-│   └── Home.razor           # Entry point
-└── wwwroot/                 # Static assets
-    ├── index.html
-    └── css/app.css          # Custom utility classes
+├── Components/              # BingoBoard, BingoSquare, GameScreen, StartScreen
+├── Services/                # BingoGameService (state), BingoLogicService (rules)
+├── Models/                  # GameState, BingoSquareData, BingoLine
+├── Data/                    # Questions.cs (24 icebreaker questions)
+├── Pages/                   # Home.razor (entry point)
+└── wwwroot/css/app.css     # Custom utility classes (no external CSS)
 ```
 
-### Key Design Decisions
-
-| Decision | Why |
-|----------|-----|
-| **Component-based UI** | Blazor naturally encourages small, reusable components |
-| **Immutable state updates** | BingoLogicService returns new lists (prevents bugs) |
-| **localStorage persistence** | Game state survives page reloads via JSInterop |
-| **Fisher-Yates shuffle** | Fair randomization of question selection |
-| **Custom CSS utilities** | No external dependencies, lightweight, Tailwind-like |
+**Key decisions**: Component-based UI, immutable state updates, localStorage persistence, Fisher-Yates shuffle, custom CSS utilities.
 
 ---
 
-## Development Workflow
-
-### Build & Run
+## Dev Workflow
 
 ```bash
-# From repository root
 cd SocOps
-
-# Watch & live reload (best for development)
-dotnet run
-
-# Just build
-dotnet build
-
-# Build for production
-dotnet publish
+dotnet run              # Dev server on http://localhost:5166
+dotnet build            # Build only
+dotnet publish          # Production build
 ```
 
-**Dev server runs on**: `http://localhost:5166`
+### Code Conventions
 
-### Naming Conventions
+| Item | Style | Example |
+|------|-------|---------|
+| Classes/Methods | PascalCase | `BingoGameService`, `CheckBingo()` |
+| Properties | PascalCase | `CurrentGameState`, `WinningLine` |
+| CSS classes | kebab-case | `.bg-marked`, `.flex-col`, `.gap-2` |
+| Components | PascalCase.razor | `GameScreen.razor` |
 
-| Category | Convention | Example |
-|----------|-----------|---------|
-| **Classes** | PascalCase | `BingoGameService`, `BingoSquareData` |
-| **Methods** | PascalCase | `CheckBingo()`, `GenerateBoard()` |
-| **Properties** | PascalCase | `CurrentGameState`, `WinningLine` |
-| **CSS classes** | lowercase-kebab | `.bg-marked`, `.flex-col`, `.gap-2` |
-| **Component files** | PascalCase.razor | `GameScreen.razor` |
-
-### Code Style
-
-- `using` directives at top, no System.Collections for LINQ
-- Blank line before namespace declaration
-- Comments for public methods (doc-style `///`)
-- LINQ preferred over loops for collections
-- Event handlers as `On*` methods in parent component
+**Style**: Using directives at top, doc comments `///` for public methods, LINQ over loops, event handlers as `On*`.
 
 ---
 
-## Styling & CSS
-
-**See**: [css-utilities.instructions.md](./instructions/css-utilities.instructions.md)
-
-### Quick Palette
-
-```css
-Primary:   #0066CC (--accent)
-Success:   #22C55E (green, marked squares)
-Warning:   #F59E0B (amber)
-Neutral:   #E5E7EB (gray-100)
-Text:      #1F2937 (gray-900)
-```
-
-**Key utilities**:
-- `flex`, `flex-col`, `grid`, `grid-cols-5`
-- `gap-2`, `p-4`, `mb-2`, `mx-auto`
-- `bg-white`, `bg-accent`, `bg-marked`
-- `text-xl`, `font-bold`, `text-center`
-
----
-
-## Frontend Design
-
-**See**: [frontend-design.instructions.md](./instructions/frontend-design.instructions.md)
-
-Apply this skill when designing new UI components or pages. Emphasizes:
-- Distinctive typography and color choices
-- Intentional motion and micro-interactions
-- Avoiding generic "AI slop" aesthetics
-- Context-specific, creative design decisions
-
----
-
-## State Management Pattern
+## State Management
 
 ```csharp
-// BingoGameService manages all game state
+// BingoGameService = central state hub
 public GameState CurrentGameState { get; private set; }
 public List<BingoSquareData> Board { get; private set; }
 
-// Components subscribe to state changes
-protected override void OnInitialized()
-{
-    GameService.OnStateChanged += StateHasChanged;
-}
-
-// Handlers update state and notify subscribers
-public void HandleSquareClick(int squareId)
-{
-    Board = BingoLogicService.ToggleSquare(Board, squareId);
-    // Check for bingo...
-    NotifyStateChanged();
-}
+// Components subscribe: GameService.OnStateChanged += StateHasChanged;
+// Service updates: Board = BingoLogicService.ToggleSquare(...); NotifyStateChanged();
 ```
 
-**Key points**:
-- Never mutate `Board` directly; always return a new list
-- State persists to localStorage automatically
-- `OnStateChanged` event triggers component re-renders
-- Services are scoped in `Program.cs`
+**Rules**: Never mutate `Board` directly—always return new lists. Persist to localStorage automatically. `OnStateChanged` triggers re-renders.
+
+---
+
+## Styling
+
+**Colors** (in `wwwroot/css/app.css`):
+- Primary: `#0066CC` (--accent)
+- Success: `#22C55E` (marked squares)
+- Warning: `#F59E0B`
+- Text: `#1F2937`
+
+**Key utilities**: `flex`, `flex-col`, `grid`, `grid-cols-5`, `gap-2`, `p-4`, `mb-2`, `bg-white`, `bg-accent`, `text-xl`, `font-bold`
+
+See [css-utilities.instructions.md](./instructions/css-utilities.instructions.md) and [frontend-design.instructions.md](./instructions/frontend-design.instructions.md).
 
 ---
 
 ## Common Pitfalls
 
-| Pitfall | Solution |
-|---------|----------|
-| Mutating Board directly | Always return new lists from BingoLogicService |
-| Forgetting `NotifyStateChanged()` | UI won't update; test with dev server reload |
-| localStorage sync issues | Check browser DevTools → Application tab |
-| Styling not applying | Verify CSS class name case (lowercase-kebab for utility) |
-| Questions list not shuffling | Check Fisher-Yates seed; use `new Random()` per call |
-
----
-
-## Workshop Structure
-
-Located in `./workshop/`:
-
-| Module | Focus |
-|--------|-------|
-| **00-overview.md** | Project scope, team coordination |
-| **01-setup.md** | This checklist + context engineering |
-| **02-design.md** | Design-first approach for UI |
-| **03-quiz-master.md** | Custom quiz mode implementation |
-| **04-multi-agent.md** | Multi-agent collaboration patterns |
-| **05-complete.md** | Full solution reference |
-
-Each module has `.md` and HTML versions for offline reading.
+| Issue | Fix |
+|-------|-----|
+| Mutating Board directly | Return new lists from BingoLogicService |
+| UI not updating | Call `NotifyStateChanged()` after state changes |
+| localStorage sync issues | Check DevTools → Application tab |
+| Styles not applying | Use lowercase-kebab CSS class names |
+| Questions not randomizing | Each call needs fresh `new Random()` |
+| Async linting warnings | Use `_ = MethodAsync();` for fire-and-forget |
 
 ---
 
 ## Testing
 
-No unit tests in the starter template, but the codebase is structurally testable:
-
-- `BingoLogicService` methods are pure (stateless, deterministic)
-- `BingoGameService` can be mocked in tests
-- Components can be tested via Blazor.Component.Testing
-
-Consider adding tests as features expand (especially bingo detection logic).
+No unit tests yet, but `BingoLogicService` is pure and testable. Components can use `Blazor.Component.Testing`. Add tests as features expand.
 
 ---
 
-## Performance Notes
+## Performance
 
-- **Minimal re-renders**: Only subscribed components re-render on state change
-- **localStorage**: Max ~5MB; game state << 1KB, no issue
-- **Bundle size**: No external CSS frameworks (custom utilities kept small)
-- **Interop calls**: Minimal JSInterop usage (only for localStorage)
-
----
-
-## Environment
-
-- **OS**: Linux (Ubuntu 24.04 in devcontainer)
-- **Runtime**: .NET 10 WebAssembly
-- **Package manager**: NuGet (implicit via dotnet CLI)
-- **Browser**: Supports all modern browsers
-
----
-
-## Before Committing
-
-```bash
-cd SocOps
-
-# Build check
-dotnet build
-
-# No test suite yet, so manual verification:
-# 1. Run dev server: dotnet run
-# 2. Test game flow: Start → Click squares → Achieve bingo
-# 3. Verify persistence: Reload page, state restored
-# 4. Check styling: All components render correctly
-```
+- Minimal re-renders (only subscribed components)
+- localStorage: ~5MB max; game state << 1KB
+- Bundle size: No external CSS frameworks
+- JSInterop: Only for localStorage
 
 ---
 
 ## Getting Help
 
-- **Blazor docs**: https://learn.microsoft.com/en-us/aspnet/core/blazor/
-- **.NET 10 WebAssembly**: https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10
-- **Workshop guides**: See `./workshop/GUIDE.md`
-- **Repository issues**: Search existing GitHub issues first
+- [Blazor docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/)
+- [.NET 10](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10)
+- [Workshop modules](./workshop/) (5 learning guides)
+- Search existing [GitHub issues](https://github.com/madsasdal/my-soc-ops-csharp/issues)
 
 ---
 
-## Suggested Next Steps
+## Next Steps
 
-1. **Understanding the codebase**: Review `SocOps/Services/BingoLogicService.cs` (game rules)
-2. **Styling customization**: Edit `SocOps/wwwroot/css/app.css` (colors, spacing)
-3. **Feature expansion**: See workshop modules 03-04 for multi-mode support
-4. **Testing**: Add unit tests for `BingoLogicService` methods
+1. Review `SocOps/Services/BingoLogicService.cs` (game rules)
+2. Customize `SocOps/wwwroot/css/app.css` (colors, spacing)
+3. Expand with multi-mode support (study workshop modules 03-04)
+4. Add unit tests for `BingoLogicService` methods
